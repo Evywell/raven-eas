@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package fr.raven.eas.passport;
+
+option java_multiple_files = true;
+
+message Passport {
+  UserInfo userInfo = 1;
+  repeated Stamp stamps = 2;
+}
+
+message UserInfo {
+  string uuid = 1;
+  int64 createdAt = 2;
+}
+
+message Stamp {
+  string name = 1;
+  int64 createdAt = 2;
+  repeated Parameter params = 3;
+}
+
+message Parameter {
+  string name = 1;
+  bytes value = 2;
+}
